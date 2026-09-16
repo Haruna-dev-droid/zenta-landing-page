@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-cream text-ink font-body antialiased;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #00ea80;
+  color: #004238;
+}
+
+/* Slim brand scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f2f6f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #004238;
+  border-radius: 999px;
+  border: 2px solid #f2f6f5;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00ea80;
+}
+
+/* Hide native cursor on fine-pointer devices so our custom cursor reads clearly */
+@media (pointer: fine) {
+  .cursor-none-desktop {
+    cursor: none;
+  }
+}
+
+.text-outline {
+  -webkit-text-stroke: 1.5px #004238;
+  color: transparent;
+}
+
+@keyframes marqueeTrack {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marqueeTrack 26s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Respect reduced motion preferences globally */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
