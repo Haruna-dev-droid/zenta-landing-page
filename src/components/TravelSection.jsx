@@ -48,7 +48,7 @@ export default function TravelSection() {
         className="pointer-events-none absolute -right-40 top-0 w-[900px] opacity-[0.08] select-none"
       />
 
-      <div className="relative max-w-[1520px] mx-auto px-8 md:px-12 lg:px-16 text-center">
+      <div className="relative max-w-[1520px] mx-auto px-10 md:px-16 lg:px-24 text-center">
         <SplitText
           as="h2"
           text="Travel should feel easy."
@@ -59,25 +59,26 @@ export default function TravelSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.6 }}
           transition={{ delay: 0.3, duration: 0.6 }}
-          className="mt-5 text-lg md:text-[28px] font-display text-ink max-w-3xl mx-auto leading-tight tracking-tight"
+          className="mt-5 mb-15 text-lg md:text-[28px] font-display text-ink max-w-3xl mx-auto leading-tight tracking-tight"
         >
           We've made finding and booking your next stay simple from start to
           finish.
         </motion.p>
 
-        <div className="relative mt-12 md:mt-16 max-w-[500px] mx-auto">
+        <div className="relative mt-20 md:mt-24 max-w-[700px] mx-auto">
           <motion.div
             style={{ y: portraitY }}
             initial={{ opacity: 0, scale: 0.92 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mx-auto w-[240px] md:w-[340px] h-[310px] md:h-[430px] rounded-[36px] overflow-hidden shadow-2xl shadow-forest/20"
+            className="relative mx-auto w-[280px] h-[320px] md:w-[700px] md:h-[400px] overflow-visible"
           >
+            <div className="absolute top-20 mt-8 inset-0 rounded-[36px]  shadow-2xl shadow-forest/20" />
             <img
               src={travelPortrait}
               alt="Traveler checking her stay details on her phone"
-              className="w-full h-full object-cover"
+              className="absolute bottom-0 left-1/2 z-10 h-[150%] w-full max-w-none -translate-x-1/2 object-contain object-bottom"
             />
           </motion.div>
 

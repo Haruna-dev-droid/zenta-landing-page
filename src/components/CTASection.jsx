@@ -48,7 +48,7 @@ export default function CTASection() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="relative max-w-[1280px] mx-auto px-8 md:px-12 lg:px-16">
+      <div className="relative max-w-[1280px] mx-auto px-10 md:px-16 lg:px-24">
         <h2 className="font-display font-semibold text-forest text-4xl md:text-[72px] leading-[1] tracking-tight">
           <WobbleLine text={LINE1} />
           <WobbleLine text={LINE2} baseDelay={0.35} />

@@ -45,7 +45,7 @@ function PlaceCard({ place, index }) {
         delay: (index % 2) * 0.15,
         ease: [0.16, 1, 0.3, 1],
       }}
-      className="group relative h-[280px] md:h-[360px] rounded-[20px] overflow-hidden shadow-xl shadow-forest/10"
+      className="group relative h-[220px] md:h-[280px] rounded-[20px] overflow-hidden shadow-xl shadow-forest/10"
       data-cursor-hover
     >
       <motion.img
@@ -55,7 +55,7 @@ function PlaceCard({ place, index }) {
         whileHover={{ scale: 1.12 }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-cream/5 via-transparent to-forest/85" />
+      <div className="absolute inset-0 bg-gradient-to-b from-cream/5 via-forest/70 to-forest" />
 
       <motion.span
         initial={{ opacity: 0, scale: 0.5, rotate: -8 }}
@@ -68,18 +68,18 @@ function PlaceCard({ place, index }) {
           stiffness: 160,
           damping: 14,
         }}
-        className="absolute top-5 right-5 md:top-7 md:right-7 font-display font-semibold text-5xl md:text-6xl text-cream/90 tracking-tight"
+        className="absolute top-4 right-4 md:top-5 md:right-5 font-display font-semibold text-4xl md:text-5xl text-cream/90 tracking-tight"
       >
         {place.num}
       </motion.span>
 
-      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-9 overflow-hidden">
+      <div className="absolute bottom-0 left-0 right-0 p-4 md:p-5 overflow-hidden">
         <motion.h3
           initial={{ y: "100%" }}
           whileInView={{ y: "0%" }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="font-display font-semibold text-xl md:text-[28px] text-cream tracking-tight"
+          className="font-display font-semibold text-base md:text-[22px] text-cream tracking-tight md:h-[1.7rem]"
         >
           {place.title}
         </motion.h3>
@@ -88,7 +88,7 @@ function PlaceCard({ place, index }) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="mt-2 text-green text-sm md:text-lg leading-snug max-w-[390px]"
+          className="mt-1 text-green text-xs md:text-[15px] leading-snug max-w-[300px] md:mx-auto md:h-[3.5rem]"
         >
           {place.copy}
         </motion.p>
@@ -102,7 +102,7 @@ export default function PlacesSection() {
     <section className="relative py-28 md:py-36 bg-gradient-to-b from-cream via-mint/40 to-cream overflow-hidden">
       <div className="pointer-events-none absolute top-1/4 right-[-12%] w-[420px] h-[420px] rounded-full bg-green/20 blur-[120px] animate-blobMorph" />
 
-      <div className="relative max-w-[1520px] mx-auto px-8 md:px-12 lg:px-16 text-center">
+      <div className="relative max-w-[1520px] mx-auto px-10 md:px-16 lg:px-24 text-center">
         <SplitText
           as="h2"
           text="Find your kind of place."
@@ -118,7 +118,7 @@ export default function PlacesSection() {
           Every trip is different. That's why your stay should be too.
         </motion.p>
 
-        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
+        <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-2 gap-7 md:gap-20 max-w-4xl mx-auto">
           {PLACES.map((p, i) => (
             <PlaceCard key={p.num} place={p} index={i} />
           ))}

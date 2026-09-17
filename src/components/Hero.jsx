@@ -66,7 +66,7 @@ export default function Hero() {
       <div className="pointer-events-none absolute -top-40 right-[-10%] w-[560px] h-[560px] rounded-full bg-green/25 blur-[110px] animate-blobMorph" />
       <div className="pointer-events-none absolute top-1/3 -left-32 w-[380px] h-[380px] rounded-full bg-mint blur-[90px] animate-floatSlow" />
 
-      <div className="relative max-w-[1520px] mx-auto px-8 md:px-12 lg:px-16">
+      <div className="relative max-w-[1520px] mx-auto px-10 md:px-16 lg:px-24">
         <motion.p
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -100,20 +100,18 @@ export default function Hero() {
           ))}
         </motion.h1>
 
-        <div className="mt-8 md:mt-12 flex flex-col md:flex-row items-center md:items-end justify-center gap-8 md:gap-10">
+        <div className="mt-8 md:mt-12 flex flex-col items-center justify-center gap-8 md:gap-10">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.6 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-[18rem] text-center md:text-left md:mr-2"
+            className="text-center"
           >
-            <p className="font-display text-forest text-xl md:text-[24px] leading-[1.25] tracking-tight">
-              Thousands of stays.
-              <br />
-              Flexible booking.
-              <br />
-              Made for you.
+            <p className="flex items-center justify-center gap-3 md:gap-6 whitespace-nowrap font-display text-forest text-sm md:text-[24px] leading-[1.25] tracking-tight">
+              <span>Thousands of stays.</span>
+              <span>Flexible booking.</span>
+              <span>Made for you.</span>
             </p>
             <MagneticButton
               className="mt-5 bg-forest text-green font-medium text-sm md:text-base px-6 py-3 rounded-xl hover:bg-ink mx-auto md:mx-0"
@@ -134,7 +132,7 @@ export default function Hero() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="relative mx-auto w-[270px] h-[340px] md:w-[360px] md:h-[450px] overflow-visible shadow-2xl shadow-forest/20"
+            className="relative mx-auto w-[280px] h-[320px] md:w-[700px] md:h-[400px] overflow-visible shadow-2xl shadow-forest/20"
           >
             <img
               src={heroHouseImage}
@@ -145,10 +143,17 @@ export default function Hero() {
             <Pill className="-top-3 left-[-14px] md:left-[-18px]" delay={0.9}>
               Search
             </Pill>
-            <Pill className="top-[42%] left-[-24px] md:left-[-34px]" delay={1.1}>
+            <Pill
+              className="top-[42%] left-[-24px] md:left-[-34px]"
+              delay={1.1}
+            >
               Comfort
             </Pill>
-            <Pill className="bottom-8 right-[-20px] md:right-[-28px]" delay={1.3} dark>
+            <Pill
+              className="bottom-8 right-[-20px] md:right-[-28px]"
+              delay={1.3}
+              dark
+            >
               Stay
             </Pill>
           </motion.div>

@@ -1,35 +1,37 @@
-import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
-import { Home, Menu, X } from 'lucide-react'
-import MagneticButton from './MagneticButton'
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Home, Menu, X } from "lucide-react";
+import MagneticButton from "./MagneticButton";
 
-const LINKS = ['Services', 'How it works', 'Properties', 'About Us']
-const SCRAMBLE_CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+const LINKS = ["Services", "How it works", "Properties", "About Us"];
+const SCRAMBLE_CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 function ScrambleLink({ label }) {
-  const [display, setDisplay] = useState(label)
+  const [display, setDisplay] = useState(label);
 
   const onEnter = () => {
-    let iteration = 0
-    const original = label
+    let iteration = 0;
+    const original = label;
     const interval = setInterval(() => {
       setDisplay(
         original
-          .split('')
+          .split("")
           .map((char, idx) => {
-            if (char === ' ') return ' '
-            if (idx < iteration) return original[idx]
-            return SCRAMBLE_CHARS[Math.floor(Math.random() * SCRAMBLE_CHARS.length)]
+            if (char === " ") return " ";
+            if (idx < iteration) return original[idx];
+            return SCRAMBLE_CHARS[
+              Math.floor(Math.random() * SCRAMBLE_CHARS.length)
+            ];
           })
-          .join('')
-      )
-      iteration += 1 / 2.2
+          .join(""),
+      );
+      iteration += 1 / 2.2;
       if (iteration >= original.length) {
-        clearInterval(interval)
-        setDisplay(original)
+        clearInterval(interval);
+        setDisplay(original);
       }
-    }, 28)
-  }
+    }, 28);
+  };
 
   return (
     <a
@@ -39,18 +41,18 @@ function ScrambleLink({ label }) {
     >
       {display}
     </a>
-  )
+  );
 }
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <motion.header
@@ -58,19 +60,27 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? 'py-3 bg-cream/80 backdrop-blur-md shadow-[0_1px_0_rgba(0,66,56,0.08)]' : 'py-6 bg-transparent'
+        scrolled
+          ? "py-3 bg-cream/80 backdrop-blur-md shadow-[0_1px_0_rgba(0,66,56,0.08)]"
+          : "py-6 bg-transparent"
       }`}
     >
-      <div className="max-w-[1520px] mx-auto px-8 md:px-12 lg:px-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2 group" data-cursor-hover>
+      <div className="max-w-[1520px] mx-auto px-10 md:px-16 lg:px-24 flex items-center justify-between">
+        <a
+          href="#top"
+          className="flex items-center gap-2 group"
+          data-cursor-hover
+        >
           <motion.span
             whileHover={{ rotate: -14, scale: 1.1 }}
-            transition={{ type: 'spring', stiffness: 300, damping: 12 }}
+            transition={{ type: "spring", stiffness: 300, damping: 12 }}
             className="grid place-items-center w-9 h-9 rounded-xl bg-green text-forest"
           >
             <Home size={20} strokeWidth={2.4} />
           </motion.span>
-          <span className="font-display font-semibold text-xl tracking-tight text-green">zenta.</span>
+          <span className="font-display font-semibold text-xl tracking-tight text-green">
+            zenta.
+          </span>
         </a>
 
         <nav className="hidden md:flex items-center gap-10">
@@ -99,7 +109,7 @@ export default function Navbar() {
       {open && (
         <motion.div
           initial={{ height: 0, opacity: 0 }}
-          animate={{ height: 'auto', opacity: 1 }}
+          animate={{ height: "auto", opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
           className="md:hidden overflow-hidden bg-cream/95 backdrop-blur-md"
         >
@@ -116,5 +126,5 @@ export default function Navbar() {
         </motion.div>
       )}
     </motion.header>
-  )
+  );
 }
