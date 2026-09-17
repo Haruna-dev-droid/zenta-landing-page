@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" fill="none">
+  <defs>
+    <radialGradient id="ctaGlow" cx="50%" cy="48%" r="52%">
+      <stop offset="0%" stop-color="#00ea80" stop-opacity="0.55"/>
+      <stop offset="45%" stop-color="#03ea82" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#00ea80" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <ellipse cx="450" cy="260" rx="430" ry="230" fill="url(#ctaGlow)"/>
+</svg>

@@ -46,17 +46,12 @@ files in `public/fonts/` and swap the `font-family` in `tailwind.config.js`.
 
 ## Images & icons
 
-All photography, icons, and decorative SVGs (the leaf logomark, the giant
-outline house-mark, the CTA glow ellipse) are the **exact assets exported
-from your Figma file**, referenced in `src/assets/figmaAssets.js`.
+Icons and decorative SVGs live in `src/assets/img/` and are imported in
+`src/assets/figmaAssets.js` so Vite hashes and ships them with the build.
 
-⚠️ **Important:** those URLs point at Figma's temporary asset CDN
-(`figma.com/api/mcp/asset/...`), which expires roughly **7 days** after
-export. Before you deploy this anywhere permanent:
-
-1. Download each URL in `figmaAssets.js` once.
-2. Drop the files in `src/assets/img/`.
-3. Swap each export to a local `import` (Vite will hash + bundle them).
+Photography uses Unsplash source URLs (not Figma). The original Figma MCP
+CDN links (`figma.com/api/mcp/asset/...`) expire after ~7 days and 404 in
+production — that is why a deploy with those URLs showed broken images.
 
 ## Footer
 
