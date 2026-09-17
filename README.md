@@ -46,12 +46,10 @@ files in `public/fonts/` and swap the `font-family` in `tailwind.config.js`.
 
 ## Images & icons
 
-Icons and decorative SVGs live in `src/assets/img/` and are imported in
-`src/assets/figmaAssets.js` so Vite hashes and ships them with the build.
-
-Photography uses Unsplash source URLs (not Figma). The original Figma MCP
-CDN links (`figma.com/api/mcp/asset/...`) expire after ~7 days and 404 in
-production — that is why a deploy with those URLs showed broken images.
+All photography, icons, and decorative SVGs live in `src/assets/img/` and
+are imported in `src/assets/figmaAssets.js` so Vite hashes and ships them
+with the build. Do not point production at Figma MCP CDN links
+(`figma.com/api/mcp/asset/...`) — they expire after ~7 days and 404.
 
 ## Footer
 
